@@ -1,0 +1,596 @@
+@font-face {
+  font-family: "poppins";
+  src: url(../font/poppins.woff2);
+  font-display: swap;
+}
+
+/* desktop */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  background-color: whitesmoke;
+  transition: background-color 0.3s ease;
+}
+
+/* navbar style */
+
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: clamp(1.6rem, 2dvw, 2rem);
+  background-color: white;
+  height: 60px;
+  width: 100dvw;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  transition: 0.3s ease;
+  user-select: none;
+}
+
+/* .navbar => .navbarContainer */
+.navbarContainer {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 60dvw;
+}
+
+/* .navbar => .hamburger */
+.hamburger {
+  position: relative;
+  display: none;
+  width: 25px;
+  height: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.hamburger span {
+  position: absolute;
+  background-color: black;
+  height: 3px;
+  width: 20px;
+  border-radius: 3px;
+  transition: 0.5s ease;
+  box-sizing: border-box;
+}
+
+.hamburger span:nth-child(1) {
+  transform: translate(0%, 0%);
+}
+
+.hamburger span:nth-child(2) {
+  transform: translate(0%, 250%);
+}
+
+.hamburger span:nth-child(3) {
+  transform: translate(0%, 500%);
+}
+
+/* .navbar => .navbarMenu */
+.navbarMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .navbar => .navbarMenu => .itemListNavbar */
+.itemListNavbar {
+  list-style: none;
+}
+
+.itemListNavbar:not(:last-child) {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.itemListNavbar:last-child {
+  margin-left: 5px;
+}
+
+/* .navbar => .navbarMenu => .itemListNavbar => .menuItem */
+.menuItem {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s ease;
+}
+
+.menuItem:hover {
+  color: red;
+}
+
+/* .navbar => .navbarMenu => .itemListNavbar => .darkLightoggle */
+.darkLightToggle {
+  text-decoration: none;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.darkLightToggleText {
+  display: inline-block;
+}
+
+@keyframes putarIcon {
+  0% {
+    transform: rotate(0deg);
+    scale: 1;
+  }
+  50% {
+    transform: rotate(180deg);
+    scale: 1.3;
+  }
+  100% {
+    transform: rotate(360deg);
+    scale: 1;
+  }
+}
+
+.darkLightToggleText.animasiIkon {
+  animation: putarIcon 0.5s ease;
+}
+
+/* main style */
+.contentContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 226px));
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 80px;
+  font-size: clamp(1.6rem, 2dvw, 2rem);
+  width: 60dvw;
+  margin: 0 auto;
+}
+
+.contentContainer.tentang {
+  display: flex;
+  padding-top: 80px;
+  font-size: clamp(1.6rem, 2dvw, 2rem);
+}
+
+/* .contentContainer => .searchForm */
+.searchForm {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .contentContainer => .searchForm => .inputSearch */
+.inputSearch {
+  border: none;
+  border-radius: 5px;
+  padding: 3px 10px;
+  width: 100%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.inputSearch:focus {
+  outline: none;
+}
+
+/* .contentContainer => .searchForm => .searchButton */
+.searchButton {
+  width: auto;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  padding: 3px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* card */
+
+@keyframes fadeInMovieCard {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* .contentContainer => .card */
+.movieCard {
+  display: block;
+  font-size: clamp(1.4rem, 2dvw, 1.6rem);
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  animation: fadeInMovieCard 0.4s ease-in-out;
+}
+
+/* .contentContainer => .card => .cardImg */
+.cardImg {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* .contentContainer => .card => .judulCard */
+.judulCard {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .contentContainer => .card => .tahunCard */
+.tahunCard {
+  margin-bottom: 10px;
+}
+
+/* .contentContainer => .card => .lihatDetailCard */
+.lihatDetailCard {
+  padding: 3px 7px;
+  border: none;
+  background-color: black;
+  color: whitesmoke;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  user-select: none;
+}
+
+.lihatDetailCard:hover {
+  background-color: red;
+}
+
+/* detail movie */
+
+.detailMovieContainer {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  overflow-y: auto;
+}
+
+.detailMovieContainer.toggleDetailMovie {
+  display: flex;
+}
+
+@keyframes fadeInDetailMovieCard {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* .detailMovieContainer => .detailMovieCard */
+.detailMovieCard {
+  display: grid;
+  grid-template-columns: 20% auto;
+  position: absolute;
+  width: clamp(230px, 90dvw, 720px);
+  font-size: clamp(1.4rem, 2dvw, 1.8rem);
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: clamp(5px, 2dvw, 20px);
+  box-sizing: border-box;
+  z-index: 99;
+  animation: fadeInDetailMovieCard 0.4s ease-in-out;
+}
+
+.detailMovieCard.loading {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .detailMovieContainer => .detailMovieCard => .imgDMContainer => .imgDetail */
+.imgDetail {
+  object-fit: cover;
+}
+
+/* .detailMovieContainer => .detailMovieCard => .detailDesc*/
+.detailDesc {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding-right: clamp(5px, 2dvw, 10px);
+  padding-bottom: clamp(5px, 2dvw, 10px);
+  padding-left: clamp(5px, 2dvw, 10px);
+  gap: 0.3rem;
+}
+
+/* .detailMovieContainer => .detailMovieCard => .detailDesc => .detailDescItem */
+.detailDescItem {
+  text-align: justify;
+  list-style: none;
+}
+
+/* .detailMovieContainer => .detailMovieCard => .detailDesc => .closeDetailMovie */
+
+.closeDetailMovie {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 30%;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke;
+  background-color: black;
+  margin-top: clamp(5px, 2dvw, 20px);
+  padding: 3px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  transition: 0.3s ease;
+}
+
+.closeDetailMovie:hover {
+  background-color: red;
+}
+
+/* pagination */
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
+  user-select: none;
+}
+
+.paginationItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.6rem, 2dvw, 2.4rem);
+  width: clamp(0.5rem, 1dvw, 1rem);
+  height: clamp(0.5rem, 1dvw, 1rem);
+  padding: clamp(1.3rem, 2dvw, 2rem);
+  color: whitesmoke;
+  background-color: black;
+  text-decoration: none;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.paginationItem:hover {
+  background-color: red;
+}
+
+.paginationItem.active {
+  color: whitesmoke;
+  background-color: red;
+}
+
+/* footer stuff */
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+  font-size: clamp(1.2rem, 2dvw, 1.6rem);
+  padding: 0.7rem;
+  text-align: center;
+  color: whitesmoke;
+  background-color: black;
+  z-index: 9999;
+}
+
+/* dark mode */
+
+body.darkMode {
+  color: whitesmoke;
+  background-color: #111823;
+}
+
+body.darkMode .navbar {
+  color: whitesmoke;
+  background-color: black;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+body.darkMode .hamburger span {
+  background-color: whitesmoke;
+}
+
+body.darkMode .menuItem {
+  color: whitesmoke;
+}
+
+body.darkMode .darkLightToggle {
+  background-color: whitesmoke;
+}
+
+body.darkMode .darkLightToggleText {
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.darkMode .inputSearch {
+  color: whitesmoke;
+  background-color: black;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
+}
+
+body.darkMode .searchButton {
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
+}
+
+body.darkMode .menuItem:hover {
+  color: yellowgreen;
+}
+
+body.darkMode .movieCard {
+  background-color: black;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+}
+
+body.darkMode .lihatDetailCard {
+  background-color: whitesmoke;
+  color: black;
+}
+
+body.darkMode .detailMovieCard {
+  background-color: #111823;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+}
+
+body.darkMode .closeDetailMovie {
+  background-color: whitesmoke;
+  color: black;
+}
+
+body.darkMode .paginationItem {
+  color: #111823;
+  background-color: whitesmoke;
+}
+
+body.darkMode .paginationItem.active {
+  color: black;
+  background-color: yellowgreen;
+}
+
+body.darkMode .paginationItem:hover {
+  background-color: yellowgreen;
+}
+
+body.darkMode .lihatDetailCard:hover {
+  background-color: yellowgreen;
+}
+
+body.darkMode .closeDetailMovie:hover {
+  background-color: yellowgreen;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    width: 90dvw;
+  }
+
+  .logoNavbar {
+    font-size: 0;
+    margin-left: auto;
+    order: 2;
+  }
+
+  .logoNavbar::before {
+    content: "NOSORA MDB";
+    font-size: 2.4rem;
+    display: inline-block;
+    color: black;
+  }
+
+  .hamburger {
+    display: block;
+    order: 1;
+  }
+
+  .navbarMenu {
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 5dvw;
+    top: 48px;
+    left: -110dvw;
+    width: 80dvw;
+    height: 100dvh;
+    background-color: white;
+    box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+    transition: left 0.5s ease;
+  }
+
+  .itemListNavbar {
+    margin: 0px;
+  }
+
+  .itemListNavbar:first-child {
+    margin: 20px 0px 10px 0px;
+  }
+
+  .itemListNavbar:not(:first-child) {
+    margin: 10px 0px;
+  }
+
+  .navbarMenu.toggleMenuNavbar {
+    left: -5dvw;
+  }
+
+  .hamburger.toggleMenuNavbar span:nth-child(1) {
+    transform: translate(0%, 250%) rotate(225deg);
+  }
+
+  .hamburger.toggleMenuNavbar span:nth-child(2) {
+    transform: translate(0%, 250%);
+    opacity: 0;
+  }
+
+  .hamburger.toggleMenuNavbar span:nth-child(3) {
+    transform: translate(0%, 250%) rotate(-225deg);
+  }
+
+  .contentContainer {
+    width: 90dvw;
+  }
+
+  /* dark mode */
+  body.darkMode .navbarMenu {
+    color: whitesmoke;
+    background-color: #111823;
+    box-shadow: inset 0 10px 10px -10px rgba(255, 255, 255, 0.2);
+  }
+
+  body.darkMode .logoNavbar::before {
+    color: whitesmoke;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .navbarContainer {
+    width: 80dvw;
+  }
+
+  .contentContainer {
+    width: 80dvw;
+  }
+}
